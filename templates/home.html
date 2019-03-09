@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/CSS/style.css">
+    <title>Calculadora - Fator de Fricção</title>
+  </head>
+  <body>
+
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="constainer">
+                <a class="navbar-brand" href="/"><img id="logo-principal" src="/static/images/dev_company.png">Dev - Companhy</a>
+            </div>
+        </nav>
+
+         <div class="jumbotron text-center apresentação">
+             <div class="container">
+                 <h1>Calculadora - Fator de Fricção</h1>
+                 <p class="lead">O fator de atrito ou coeficiente de resistência de Darcy-Weisbach, algumas vezes citado como fator de fricção (f) é um parâmetro adimensional que é utilizado para calcular a perda de carga em uma tubulação devida ao atrito.</p>
+                 <p class="lead"> Para utilizar a calculadora entre com os dados abaixo:</p>
+             </div>
+        </div>
+
+
+
+        <div class="container">
+            <form action="{{ url_for('send_data') }}" id = "entrada-dados" method="POST">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Rugosidade Absoluta(mm)</label>
+                            <input type="text" class="form-control" name="rugosidade-absoluta">
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Diâmetro Interno(mm)</label>
+                            <input type="text" class="form-control" name="diametro-interno">
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Número de Reynolds</label>
+                            <input type="text" class="form-control" name="numero-reynolds">
+                        </div>
+
+                    </div>
+                </div>
+
+                <input type="submit" class="btn btn-primary" value="Calcular">
+            </form>
+
+            {%if fator != null %}
+            <div class="jumbotron text-center resultado">
+                <div class="container">
+                    <h2>O Resultado encontrado foi:</h2>
+                    <h1>{{ fator }}</h1>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
